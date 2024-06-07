@@ -1,7 +1,7 @@
 import { useEffect ,useState} from "react";
 
 
-const key="AIzaSyB40gPzJfA-YSabgmpKpBRsoUVVXcPMwRo";
+const key=import.meta.env.VITE_api_key;
 function Trendfetch(Id)
 {
     const [videos, setVideos] = useState([]);

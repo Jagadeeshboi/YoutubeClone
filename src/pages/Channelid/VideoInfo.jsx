@@ -19,15 +19,17 @@ const Videodiscription=styled.p`
     font-size:1.6rem;
 `
 
+const api_key=import.meta.env.VITE_api_key;
 const VideoInfo = ({ videoId}) => {
     const[isTrueInfo,setTrue]=useState(false)
     const [videoDetails, setVideoDetails] = useState(null);
+
 
     useEffect(() => {
         const fetchVideoDetails = async () => {
         try {
             const response = await axios.get(
-            `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet,statistics&key=AIzaSyB40gPzJfA-YSabgmpKpBRsoUVVXcPMwRo`
+            `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet,statistics&key=${api_key}`
             );
             setVideoDetails(response.data.items[0]);
         } catch (error) {

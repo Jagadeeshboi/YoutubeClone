@@ -1,6 +1,8 @@
 import { useEffect,useState } from "react"
 import axios from "axios";
 
+
+const api_key=import.meta.env.VITE_api_key;
 function Channel({channelId}) {
     const[imgUrl,setImageUrl]=useState('');
 
@@ -9,7 +11,7 @@ function Channel({channelId}) {
             const fetchChannelImage = async () => {
                     try {
                     const response = await axios.get(
-                        `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=AIzaSyB40gPzJfA-YSabgmpKpBRsoUVVXcPMwRo`
+                        `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${api_key}`
                     );
                     const channelData = response.data.items[0];
                     const image = channelData.snippet.thumbnails.default.url;

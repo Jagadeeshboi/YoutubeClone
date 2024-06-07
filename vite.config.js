@@ -5,4 +5,7 @@ import eslint from 'vite-plugin-eslint'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(),eslint()],
+  // define:{
+  //   "process.env.api_key":JSON.stringify(process.env.api_key)
+  // }
 })

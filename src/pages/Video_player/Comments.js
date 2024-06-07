@@ -4,7 +4,7 @@ import {useParams} from "react-router-dom";
 
 
 const Api_url='https://www.googleapis.com/youtube/v3/commentThreads';
-const Api_key="AIzaSyB40gPzJfA-YSabgmpKpBRsoUVVXcPMwRo";
+const Api_key=import.meta.env.VITE_api_key;
 function Comments() {
     
     const [comments,Setcomments]=useState();

@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 
-const key="AIzaSyB40gPzJfA-YSabgmpKpBRsoUVVXcPMwRo";
+const key=import.meta.env.VITE_api_key;
 const ApiContext=createContext()
 function Contextapi({children}) {
     const [searchTerm ,setSearchterm]= useState('');

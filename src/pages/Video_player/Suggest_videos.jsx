@@ -6,11 +6,12 @@ import VideoInfo from '../Channelid/VideoInfo';
 const SuggestedVideos = () => {
     const [videos, setVideos] = useState([]);
     const {id:videoId}=useParams();
+    const api_key=import.meta.env.VITE_api_key;
 
     useEffect(() => {
         const fetchVideos = async () => {
         try {
-            const response = await axios.get(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyB40gPzJfA-YSabgmpKpBRsoUVVXcPMwRo&part=snippet&type=videos&caption_id=${videoId}&maxResults=30`);
+            const response = await axios.get(`https://www.googleapis.com/youtube/v3/search?key=${api_key}&part=snippet&type=videos&caption_id=${videoId}&maxResults=30`);
             setVideos(response.data.items);
         } catch (error) {
             console.error('Error fetching videos:', error);
