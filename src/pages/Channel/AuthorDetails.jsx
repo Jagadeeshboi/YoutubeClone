@@ -11,9 +11,9 @@ const Maindiv=styled.div`
 `
 
 const Styledimg=styled.img`
-    width:32px;
-    height:32px;
-    border-radius:15px;
+    width:160px;
+    height:160px;
+    border-radius:50%;
     padding:15px;
 `
 const Btnblock=styled.div `
@@ -43,6 +43,16 @@ const StylesLinks=styled.div`
     margin:0rem 10rem;
     border-bottom:1px solid grey;
 `
+const Styledul=styled.ul`
+    font-size:23rem;
+    color:var(--color-grey-500);
+    display:flex;
+    gap:15px;
+    text-decoration:dotted;
+    margin: 8px 0;
+`
+
+
 const Styledlink=styled(NavLink)`
     &:link,
     &:visited
@@ -60,7 +70,10 @@ const Styledlink=styled(NavLink)`
         text-decoration:underline;
         color:red;
     }
-
+`
+const Discription=styled.p`
+    font-size:1.2rem;
+    color:var(--color-grey-500);
 `
 
 function AuthorDetails() {
@@ -74,11 +87,12 @@ function AuthorDetails() {
                 <Styledimg src={snippet.thumbnails.medium.url} alt="author_image"/> 
                 <div>
                     <StyledHeading>{snippet.title}</StyledHeading>
-                    <ul>
-                        <li></li>
-                        <li>{statistics.subscriberCount}</li>
-                        <li>{statistics.videoCount}Videos</li>
-                    </ul>
+                    <Styledul>
+                        <li><p>{snippet.customUrl}</p></li>
+                        <li><p>{statistics.subscriberCount<1000?statistics.subscriberCount:statistics.subscriberCount<1000000?(statistics.subscriberCount/1000)+'K':(statistics.subscriberCount/1000000)+'M'} subscribers</p></li>
+                        <li><p>{statistics.videoCount<1000?statistics.videoCount:statistics.videoCount<1000000?(statistics.videoCount/1000).toFixed(1)+'K ':(statistics.videoCount/1000000).toFixed(2)+'M'}Videos</p></li>
+                    </Styledul>
+                    <Discription>{snippet.description}</Discription>
                     <Btnblock>
                         <SubBtn>Subscribe</SubBtn>
                     </Btnblock>

@@ -2,6 +2,7 @@
   margin: 0;
   padding:0;
   list-style: none;
+  
 }
 :root {
   /* Indigo */
@@ -507,7 +508,7 @@ h3
 {
   max-width: 100vw;
 }
-.search_videos .image
+.search_videos .image 
 {
   display: flex;
   gap: 8px;
@@ -527,6 +528,13 @@ h3
   margin-left: 12px;
   border-bottom: 1px solid grey;
   padding: 5px;
+}
+ .Search .image img
+{
+  width: 42px;
+  height: 42px;
+  border-radius: 20px;
+  border: 1px solid grey;
 }
 .video_search  img 
 {

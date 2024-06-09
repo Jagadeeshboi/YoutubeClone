@@ -1,4 +1,4 @@
-import axios from "axios"
+// import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 
@@ -7,13 +7,14 @@ function ApiChannelAuthor() {
     const [Author,Setauthor]=useState([]);
     const[loading,Setloading]=useState(false);
     const {ch_id}=useParams();
+    console.log(ch_id)
     
     useEffect(()=>{
         async function getData()
         {
             const res=await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${ch_id}&key=${api_key}`);
             const data=await res.json();
-            console.log(data)
+            Setauthor(data.items[0]);
         }
         getData();
     },[ch_id])

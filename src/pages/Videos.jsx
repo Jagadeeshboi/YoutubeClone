@@ -10,12 +10,13 @@ function Videos() {
     
     return (
         <ul className={`videos ${Sidebar?'de_activate':'activation'}`}>
-            {videos.map(video=><li key={video.id} className="video-card">
+            {videos.map((video,index)=><li key={index} className="video-card">
               <Link to={`video/${video.id}`} target="_parent" rel="noopener noreferrer">
                 <img src={video.snippet.thumbnails.high.url} alt={video.snippet.title} />
               <p className="title">{video.snippet.title.split(' ').slice(0,6).join(' ')+'..'}</p>
               <div className="images">
-              <Link to={`channel/${video.snippet.channelId}`}><Channel key={video.snippet.channelId} channelId={video.snippet.channelId} /></Link>
+              <Link to={`channel/${video.snippet.channelId}`}>
+              <Channel key={video.snippet.channelId} channelId={video.snippet.channelId} /></Link>
               </div>
                 <p className="channel_title">{video.snippet.channelTitle}</p>
                 <div className="views_likes">

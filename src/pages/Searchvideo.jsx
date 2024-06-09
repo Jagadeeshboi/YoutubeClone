@@ -15,7 +15,7 @@ function Searchvideo() {
               <li key={result.id.videoId}>
                     <Link to={`video/${result.id.videoId}`} target="_parent" rel="noopener noreferrer" className="video_search">
                             <img src={result.snippet.thumbnails.high.url} alt={result.snippet.title} />
-                            <div>   
+                            <div className="Search">   
                                 <p className="title">{result.snippet.title}</p>
                                 <div className="image">
                                   <Channel key={result.snippet.channelId} channelId={result.snippet.channelId} />
