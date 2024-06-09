@@ -1,5 +1,7 @@
 import { NavLink, useParams } from "react-router-dom"
 import styled from "styled-components"
+import ApiChannelAuthor from "./apiChannelAuthor"
+import Spinner from "../Spinner"
 
 const Maindiv=styled.div`
     display:flex;
@@ -63,16 +65,19 @@ const Styledlink=styled(NavLink)`
 
 function AuthorDetails() {
     const{ch_id}=useParams()
+
+    const {snippet,statistics,loading}=ApiChannelAuthor();
     return (
         <>
+            {loading&&<Spinner/>}
             <Maindiv>
-                <Styledimg src="" alt="author_image"/> 
+                <Styledimg src={snippet.thumbnails.medium.url} alt="author_image"/> 
                 <div>
-                    <StyledHeading>Mr.Beast</StyledHeading>
+                    <StyledHeading>{snippet.title}</StyledHeading>
                     <ul>
                         <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>{statistics.subscriberCount}</li>
+                        <li>{statistics.videoCount}Videos</li>
                     </ul>
                     <Btnblock>
                         <SubBtn>Subscribe</SubBtn>

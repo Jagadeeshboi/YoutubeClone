@@ -16,7 +16,6 @@ function ChannelShorts() {
         <li key={video.title} className="video-card shorts">
             <Link to={`/shorts/${video.videoId}`} target="_parent" rel="noopener noreferrer">
                 <img src={video.thumbnails[0].url} alt={video.title} className="image"/>
-            {/*  */}
         </Link>
         <p>{video.title.split(' ').slice(0,6).join(' ')+'..'}</p>
         <p>{video.viewCount} views</p>
