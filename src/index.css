@@ -276,7 +276,7 @@ aside ul li button
   left: 10%;
   transform: translateX(-6%);
 } 
-.images .channel_img 
+.image .channel_img 
 {
   width: 36px;
   height: 36px;
@@ -528,7 +528,7 @@ h3
   border-bottom: 1px solid grey;
   padding: 5px;
 }
-.video_search img 
+.video_search  img 
 {
   width: 480px;
   height: 300px;
